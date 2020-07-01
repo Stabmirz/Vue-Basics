@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Vue Tutorial</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1>{{greeting}}</h1>
+      <input v-model="greeting" />
+      <br />
+
+      <p> show a div based on the condition </p>
+      <div v-if="count === 1">Red</div>
+      <div v-if="count === 2">Green</div>
+      <div v-else>Blue</div>
+      <br />
+
+      <!-- show a div only if the condition is true otherwise dive style is display none -->
+
+      <div v-show="count === 1">Red</div>
+
+      <br />
+      
+      <p class="paragraph">using Vue bind to make input border color red and disable a button if the email length is less than 2 </p>
+      
+      <!-- <input v-model="email" :class="{red: email.length < 2 }" /> </p> -->
+
+      <input v-model="email" :class="[email.length < 2 ? 'red' : 'text']" >
+
+        <!-- <button type="submit" onclick="alert('signed up')" v-bind:disabled="email.length<2">Submit</button>  -->
+      
+      <button
+        type="submit"
+        onclick="alert('signed up')"
+        :disabled="email.length<2"
+      >
+        Submit
+      </button>
+
+      <p class="paragraph">Showing text of that field with vue text binding </p>
+
+      <p v-text="email"></p>
+
+      <p class="paragraph">to purse it in html </p>
+
+      <p v-html="email"></p>
+
+      <p class="paragraph">by using v-once the value will not be changed </p>
+
+      <p v-once>{{email}}</p>
+
+      <p class="paragraph">Looping in Vue </p>
+
+    <p class="paragraph">showing data of an array  </p>
+      <ul>
+          <li v-for="hobby in hobbies">
+            {{hobby}}
+          </li>
+      </ul>
+
+       <p class="paragraph">showing data of an array of object  </p>
+
+      <ol>
+          <li v-for="car in cars">
+            {{car.name}}
+          </li>
+      </ol>
+
+      <!-- <p class="paragraph">adding data to an array of object  </p>
+
+      <input v-model="newCar">
+      <button v-on:click="addCar">+ADD</button> -->
+
+      <!-- instead of "v-on:" we use "@" sign -->
+
+      <p class="paragraph">Add more cars by pressing key</p>
+      <input v-model="newCar" @keyup.enter="addCar">
+      <button @click="addCar">+ADD</button>
+      </br>
+
+      {{carAdded}}
+
+      <p class="paragraph">Using Filter method in Vue like rendering the text in uppercase or adding something at the end of the text</p>
+
+
+        <ol>
+            <li v-for="car in cars">
+            {{car.name | capitalize | autochen}}
+            </li>
+        </ol>
+
+        <p class="paragraph">Adding vue component </p>
+        <Hobby :hobbies="hobbies"/>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

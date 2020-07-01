@@ -1,0 +1,16 @@
+.red{
+    border:2px solid red;
+}
+
+.green{
+    border: 2px solid green;
+}
+
+.paragraph{
+    font-size: 24px;
+    color:green;
+}
+
+#root{
+    padding: 50px;
+}
